@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	interval "helloCLI/interval/word"
+	"helloCLI/interval/word"
 	"log"
 	"strings"
 
@@ -24,17 +24,17 @@ var wordCmd = &cobra.Command{
 		var content string
 		switch mode {
 		case ModeUpper:
-			content = interval.ToUpper(str)
+			content = word.ToUpper(str)
 		case ModeLower:
-			content = interval.ToLower(str)
+			content = word.ToLower(str)
 		case ModeUnderscoreToUpperCamelCase:
-			content = interval.UnderscoreToUpperCamelClass(str)
+			content = word.UnderscoreToUpperCamelClass(str)
 		case ModeUnderscoreToLowerCamelCase:
-			content = interval.UnderscoreToLowerCamelClass(str)
+			content = word.UnderscoreToLowerCamelClass(str)
 		case UpperCamelCaseToUnderscore:
-			content = interval.CamelCaseToUnderscore(str)
+			content = word.CamelCaseToUnderscore(str)
 		default:
-			log.Fatalf("暂不支持该转换模式，请执行help word 查看帮助文档")
+			log.Fatalf("暂不支持该转换模式, 请执行help word 查看帮助文档")
 		}
 		log.Printf("输出结果: %s", content)
 	},
