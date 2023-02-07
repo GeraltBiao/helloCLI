@@ -30,12 +30,15 @@ var calculateTimeCmd = &cobra.Command{
 			currentTimer = timer.GetNowTime()
 		} else {
 			var err error
-			space := strings.Count(calculateTime, " ")
-			if space == 0 {
+			colon := strings.Count(calculateTime, ":")
+			if colon == 0 {
 				layout = "2006-01-02"
 			}
-			if space == 1 {
+			if colon == 1 {
 				layout = "2006-01-02 15:04"
+			}
+			if colon == 2 {
+				layout = "2006-01-02 15:04:05"
 			}
 			currentTimer, err = time.Parse(layout, calculateTime)
 			if err != nil {
